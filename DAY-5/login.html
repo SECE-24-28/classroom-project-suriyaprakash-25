@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Airtel Next</title>
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/login.css" />
+</head>
+<body>
+  <nav>
+    <div class="container navbar">
+      <div class="brand">
+        <div class="logo">A</div>
+        Airtel Next
+      </div>
+      <div class="nav-links">
+        <a data-nav href="index.html">Home</a>
+        <a data-nav href="plans.html">Plans</a>
+        <a data-nav href="recharge.html">Recharge</a>
+        <a data-nav href="login.html">Login</a>
+        <a class="btn" href="signup.html">Create Account</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="auth-card card">
+      <div class="badge" style="margin-bottom:12px;">
+        <span class="pill">Welcome back</span>
+        <span>Secure sign-in</span>
+      </div>
+      <h2>Sign in to continue</h2>
+      <p class="subtle" style="margin:8px 0 18px;">Access your saved numbers, quick recharges, and perks.</p>
+      <form class="form" data-demo data-success="You are signed in.">
+        <label class="label" for="login-email">Email or phone</label>
+        <input class="input" type="text" id="login-email" placeholder="you@example.com" required />
+
+        <label class="label" for="login-password">Password</label>
+        <input class="input" type="password" id="login-password" placeholder="••••••••" required />
+
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <label class="subtle"><input type="checkbox" style="margin-right:6px;" /> Keep me signed in</label>
+          <a class="subtle" href="#">Forgot password?</a>
+        </div>
+
+        <button class="btn" type="submit">Sign in</button>
+      </form>
+
+      <p class="subtle" style="margin-top:18px;">New to Airtel? <a class="link" href="signup.html">Create an account</a>.</p>
+    </div>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+.hero {
+  padding: 60px 0 40px;
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  align-items: center;
+}
+
+.hero h1 { max-width: 640px; }
+
+.hero .lead { max-width: 620px; }
+
+.hero .badge {
+  background: #fff8f9;
+  border-color: #fde7ec;
+  color: var(--accent);
+}
+
+.hero .banner {
+  background: linear-gradient(90deg, #fff0f3, #ffffff);
+  border-color: #fde7ec;
+}
+
+.hero .card { background: #fff; }
+
+.hero .grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+
+.hero .pill { background: #fff0f3; color: var(--accent); }

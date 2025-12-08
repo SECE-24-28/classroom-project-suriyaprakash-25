@@ -1,0 +1,19 @@
+.recharge-hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 24px;
+  align-items: start;
+  padding: 50px 0 30px;
+}
+
+.recharge-hero .badge {
+  background: #fff8f9;
+  border-color: #fde7ec;
+  color: var(--accent);
+}
+
+.recharge-hero .pill { background: #fff0f3; color: var(--accent); }
+
+.recharge-hero .card { background: #fff; }
+
+.recharge-hero .grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
