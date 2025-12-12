@@ -1,0 +1,1677 @@
+/* ==========================================
+   AIRTEL RECHARGE - PROFESSIONAL STYLES
+   ========================================== */
+
+/* CSS Variables */
+:root {
+  --airtel-red: #ED1C24;
+  --airtel-red-dark: #c41419;
+  --airtel-red-light: #ff4d52;
+  --primary-dark: #1a1a2e;
+  --secondary-dark: #16213e;
+  --accent-blue: #0f3460;
+  --text-primary: #ffffff;
+  --text-secondary: #b8b8b8;
+  --text-dark: #333333;
+  --background-light: #f5f5f5;
+  --card-bg: #ffffff;
+  --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.15);
+  --shadow-heavy: 0 8px 30px rgba(0, 0, 0, 0.2);
+  --border-radius: 12px;
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--background-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* App Layout */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container {
+  display: flex;
+  flex: 1;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 280px;
+  padding: 20px;
+  transition: margin-left var(--transition-normal);
+}
+
+.main-content.expanded {
+  margin-left: 80px;
+}
+
+/* ==========================================
+   NAVBAR STYLES
+   ========================================== */
+.navbar {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+  padding: 0 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-medium);
+}
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.airtel-logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--airtel-red);
+  letter-spacing: -1px;
+  font-style: italic;
+}
+
+.logo-tagline {
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  gap: 8px;
+}
+
+.navbar-item {
+  position: relative;
+}
+
+.navbar-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.navbar-link:hover,
+.navbar-link.active {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-link.active {
+  background: var(--airtel-red);
+}
+
+.offer-badge {
+  background: #ff6b35;
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-weight: 600;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-track {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--text-primary);
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all var(--transition-fast);
+}
+
+.btn-track:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-login {
+  background: transparent;
+  border: 2px solid var(--airtel-red);
+  color: var(--airtel-red);
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all var(--transition-fast);
+}
+
+.btn-login:hover {
+  background: var(--airtel-red);
+  color: white;
+}
+
+.btn-signup {
+  background: var(--airtel-red);
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all var(--transition-fast);
+}
+
+.btn-signup:hover {
+  background: var(--airtel-red-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(237, 28, 36, 0.4);
+}
+
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.hamburger {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: var(--text-primary);
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 3px;
+  background: var(--text-primary);
+  transition: all var(--transition-fast);
+}
+
+.hamburger::before { top: -8px; }
+.hamburger::after { bottom: -8px; }
+
+.hamburger.active {
+  background: transparent;
+}
+
+.hamburger.active::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.hamburger.active::after {
+  transform: rotate(-45deg);
+  bottom: 0;
+}
+
+/* ==========================================
+   SIDEBAR STYLES
+   ========================================== */
+.sidebar {
+  width: 280px;
+  height: calc(100vh - 70px);
+  background: linear-gradient(180deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+  position: fixed;
+  top: 70px;
+  left: 0;
+  overflow-y: auto;
+  transition: width var(--transition-normal);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-avatar {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, var(--airtel-red), var(--airtel-red-light));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.user-info h4 {
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.user-info p {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.sidebar-toggle {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: var(--text-primary);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.sidebar-toggle:hover {
+  background: var(--airtel-red);
+}
+
+.sidebar-quick-actions {
+  padding: 15px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.quick-action-btn {
+  flex: 1;
+  min-width: 70px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  transition: all var(--transition-fast);
+  font-size: 11px;
+}
+
+.quick-action-btn:hover {
+  background: var(--action-color, var(--airtel-red));
+  border-color: var(--action-color, var(--airtel-red));
+  transform: translateY(-2px);
+}
+
+.action-icon {
+  font-size: 18px;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 10px 0;
+}
+
+.nav-section {
+  margin-bottom: 5px;
+}
+
+.section-header {
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.section-header:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.section-header.expanded {
+  color: var(--airtel-red);
+}
+
+.section-icon {
+  font-size: 16px;
+}
+
+.section-title {
+  flex: 1;
+  text-align: left;
+}
+
+.section-arrow {
+  font-size: 10px;
+  transition: transform var(--transition-fast);
+}
+
+.section-items {
+  list-style: none;
+  padding-left: 0;
+}
+
+.nav-item {
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  padding: 10px 20px 10px 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: 14px;
+}
+
+.nav-item:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+  padding-left: 55px;
+}
+
+.nav-item.active {
+  color: var(--text-primary);
+  background: linear-gradient(90deg, var(--airtel-red), transparent);
+  border-left: 3px solid var(--airtel-red);
+}
+
+.item-icon {
+  font-size: 14px;
+}
+
+.item-name {
+  flex: 1;
+  text-align: left;
+}
+
+.item-badge {
+  background: var(--airtel-red);
+  color: white;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.sidebar-footer {
+  padding: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.support-card {
+  background: linear-gradient(135deg, var(--airtel-red), var(--airtel-red-dark));
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+.support-icon {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.support-card h5 {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.support-card p {
+  font-size: 12px;
+  opacity: 0.9;
+  margin-bottom: 10px;
+}
+
+.support-link {
+  display: inline-block;
+  background: white;
+  color: var(--airtel-red);
+  padding: 8px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all var(--transition-fast);
+}
+
+.support-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================
+   MAIN CONTENT STYLES
+   ========================================== */
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 50%, var(--accent-blue) 100%);
+  border-radius: 20px;
+  padding: 60px 50px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(237, 28, 36, 0.2), transparent);
+  border-radius: 50%;
+}
+
+.hero-content {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 42px;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.hero-content .highlight {
+  color: var(--airtel-red);
+  display: block;
+}
+
+.hero-content p {
+  color: var(--text-secondary);
+  font-size: 16px;
+  margin-bottom: 30px;
+  max-width: 500px;
+}
+
+.recharge-form {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  flex: 1;
+  max-width: 350px;
+}
+
+.input-prefix {
+  padding: 0 15px;
+  background: #f5f5f5;
+  color: var(--text-dark);
+  font-weight: 600;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-right: 1px solid #ddd;
+}
+
+.mobile-input {
+  flex: 1;
+  border: none;
+  padding: 15px;
+  font-size: 16px;
+  outline: none;
+}
+
+.btn-browse-plans {
+  background: var(--airtel-red);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn-browse-plans:hover {
+  background: var(--airtel-red-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(237, 28, 36, 0.4);
+}
+
+.hero-features {
+  display: flex;
+  gap: 30px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.feature-icon {
+  font-size: 18px;
+}
+
+.hero-image {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.phone-mockup {
+  width: 280px;
+  height: 500px;
+  background: #1a1a1a;
+  border-radius: 40px;
+  padding: 15px;
+  box-shadow: var(--shadow-heavy);
+  position: relative;
+}
+
+.phone-mockup::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 25px;
+  background: #000;
+  border-radius: 15px;
+}
+
+.phone-screen {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, var(--airtel-red) 0%, var(--airtel-red-dark) 100%);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.airtel-brand {
+  font-size: 36px;
+  font-weight: 700;
+  color: white;
+  font-style: italic;
+}
+
+.balance-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 25px 35px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.balance-label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.balance-amount {
+  color: white;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.validity {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+}
+
+/* Plans Section */
+.plans-section {
+  margin-bottom: 30px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-header h2 {
+  font-size: 32px;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+.section-header p {
+  color: #666;
+  font-size: 16px;
+}
+
+.plans-filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: white;
+  border: 2px solid #e0e0e0;
+  padding: 10px 24px;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-weight: 500;
+}
+
+.filter-btn:hover {
+  border-color: var(--airtel-red);
+  color: var(--airtel-red);
+}
+
+.filter-btn.active {
+  background: var(--airtel-red);
+  border-color: var(--airtel-red);
+  color: white;
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.plan-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: var(--shadow-light);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.plan-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
+}
+
+.plan-card.selected {
+  border-color: var(--airtel-red);
+  box-shadow: 0 4px 20px rgba(237, 28, 36, 0.2);
+}
+
+.plan-tag {
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  background: linear-gradient(135deg, var(--airtel-red), #ff6b35);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.plan-price {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 5px;
+}
+
+.plan-validity {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.plan-features {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.plan-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  color: #555;
+  font-size: 14px;
+}
+
+.plan-features .icon {
+  font-size: 16px;
+}
+
+.btn-select {
+  width: 100%;
+  background: linear-gradient(135deg, var(--airtel-red), var(--airtel-red-dark));
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-select:hover {
+  box-shadow: 0 4px 15px rgba(237, 28, 36, 0.4);
+  transform: translateY(-2px);
+}
+
+.recharge-summary {
+  background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
+  border-radius: 16px;
+  padding: 20px 30px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.summary-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: var(--text-primary);
+}
+
+.summary-details span:first-child {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.summary-details span:last-child {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.btn-recharge {
+  background: var(--airtel-red);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-recharge:hover {
+  background: var(--airtel-red-light);
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(237, 28, 36, 0.5);
+}
+
+/* Features Section */
+.features-section {
+  padding: 50px 0;
+}
+
+.features-section h2 {
+  text-align: center;
+  font-size: 32px;
+  color: var(--text-dark);
+  margin-bottom: 40px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.feature-card {
+  background: white;
+  border-radius: 16px;
+  padding: 35px 25px;
+  text-align: center;
+  box-shadow: var(--shadow-light);
+  transition: all var(--transition-normal);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-medium);
+}
+
+.feature-icon-large {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 18px;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   FOOTER STYLES
+   ========================================== */
+.footer {
+  background: var(--primary-dark);
+  margin-top: auto;
+}
+
+.footer-newsletter {
+  background: linear-gradient(135deg, var(--airtel-red), var(--airtel-red-dark));
+  padding: 50px 30px;
+}
+
+.newsletter-content {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+}
+
+.newsletter-content h3 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.newsletter-content p {
+  opacity: 0.9;
+  margin-bottom: 25px;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+}
+
+.newsletter-btn {
+  background: var(--primary-dark);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.newsletter-btn:hover {
+  background: var(--secondary-dark);
+  transform: translateY(-2px);
+}
+
+.footer-main {
+  padding: 60px 30px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.footer-brand .footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.footer-brand .airtel-logo {
+  font-size: 32px;
+}
+
+.footer-brand .logo-tagline {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.footer-description {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  font-size: 12px;
+}
+
+.social-link:hover {
+  background: var(--airtel-red);
+  transform: translateY(-3px);
+}
+
+.social-icon {
+  font-size: 14px;
+}
+
+.social-icon.facebook::before { content: 'f'; font-weight: bold; }
+.social-icon.twitter::before { content: '𝕏'; }
+.social-icon.instagram::before { content: '📷'; }
+.social-icon.youtube::before { content: '▶'; }
+.social-icon.linkedin::before { content: 'in'; font-weight: bold; }
+
+.footer-links-section h4 {
+  color: var(--text-primary);
+  font-size: 16px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  transition: all var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--airtel-red);
+  padding-left: 5px;
+}
+
+.footer-payments {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 25px 30px;
+}
+
+.footer-payments .footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.payment-label {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.payment-methods {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.payment-icon {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 15px;
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.footer-bottom {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 20px 30px;
+}
+
+.footer-bottom .footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.copyright {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.footer-certifications {
+  display: flex;
+  gap: 20px;
+}
+
+.cert-badge {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN - LAPTOP OPTIMIZED
+   ========================================== */
+
+/* Large Laptops (1440px and above) */
+@media (min-width: 1440px) {
+  .navbar-container {
+    max-width: 1400px;
+  }
+  
+  .main-content {
+    max-width: calc(100% - 280px);
+    padding: 30px 40px;
+  }
+  
+  .hero-section {
+    padding: 70px 60px;
+  }
+  
+  .hero-content h1 {
+    font-size: 48px;
+  }
+  
+  .plans-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+  
+  .footer-container {
+    max-width: 1400px;
+  }
+}
+
+/* Standard Laptops (1200px - 1439px) */
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .navbar-container {
+    max-width: 1200px;
+  }
+  
+  .sidebar {
+    width: 260px;
+  }
+  
+  .main-content {
+    margin-left: 260px;
+    padding: 25px 30px;
+  }
+  
+  .main-content.expanded {
+    margin-left: 70px;
+  }
+  
+  .hero-section {
+    padding: 50px 45px;
+    gap: 40px;
+  }
+  
+  .hero-content h1 {
+    font-size: 40px;
+  }
+  
+  .hero-content p {
+    font-size: 15px;
+  }
+  
+  .phone-mockup {
+    width: 250px;
+    height: 450px;
+  }
+  
+  .plans-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .plan-card {
+    padding: 22px;
+  }
+  
+  .plan-price {
+    font-size: 32px;
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  
+  .feature-card {
+    padding: 30px 20px;
+  }
+  
+  .footer-container {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+    gap: 30px;
+  }
+}
+
+/* Small Laptops / Large Tablets (1024px - 1199px) */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .navbar-container {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+  
+  .navbar-menu {
+    gap: 5px;
+  }
+  
+  .navbar-link {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  
+  .navbar-actions {
+    gap: 8px;
+  }
+  
+  .btn-track {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  
+  .btn-login {
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+  
+  .btn-signup {
+    padding: 8px 18px;
+    font-size: 13px;
+  }
+  
+  .sidebar {
+    width: 240px;
+  }
+  
+  .sidebar.collapsed {
+    width: 70px;
+  }
+  
+  .main-content {
+    margin-left: 240px;
+    padding: 20px 25px;
+  }
+  
+  .main-content.expanded {
+    margin-left: 70px;
+  }
+  
+  .hero-section {
+    padding: 40px 35px;
+    gap: 30px;
+  }
+  
+  .hero-content h1 {
+    font-size: 34px;
+  }
+  
+  .hero-content p {
+    font-size: 14px;
+    max-width: 420px;
+  }
+  
+  .recharge-form {
+    gap: 12px;
+  }
+  
+  .input-group {
+    max-width: 300px;
+  }
+  
+  .mobile-input {
+    padding: 12px;
+    font-size: 14px;
+  }
+  
+  .btn-browse-plans {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+  
+  .hero-features {
+    gap: 20px;
+  }
+  
+  .feature {
+    font-size: 13px;
+  }
+  
+  .phone-mockup {
+    width: 220px;
+    height: 400px;
+    border-radius: 35px;
+  }
+  
+  .phone-screen {
+    border-radius: 25px;
+  }
+  
+  .airtel-brand {
+    font-size: 30px;
+  }
+  
+  .balance-card {
+    padding: 20px 28px;
+  }
+  
+  .balance-amount {
+    font-size: 26px;
+  }
+  
+  .section-header h2 {
+    font-size: 28px;
+  }
+  
+  .plans-filters {
+    gap: 8px;
+  }
+  
+  .filter-btn {
+    padding: 8px 18px;
+    font-size: 13px;
+  }
+  
+  .plans-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  
+  .plan-card {
+    padding: 20px;
+  }
+  
+  .plan-price {
+    font-size: 28px;
+  }
+  
+  .plan-validity {
+    font-size: 13px;
+  }
+  
+  .plan-features li {
+    font-size: 13px;
+    padding: 6px 0;
+  }
+  
+  .btn-select {
+    padding: 10px;
+    font-size: 13px;
+  }
+  
+  .features-section h2 {
+    font-size: 28px;
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  
+  .feature-card {
+    padding: 25px 18px;
+  }
+  
+  .feature-icon-large {
+    font-size: 40px;
+    margin-bottom: 15px;
+  }
+  
+  .feature-card h3 {
+    font-size: 16px;
+  }
+  
+  .feature-card p {
+    font-size: 13px;
+  }
+  
+  .footer-newsletter {
+    padding: 40px 25px;
+  }
+  
+  .newsletter-content h3 {
+    font-size: 24px;
+  }
+  
+  .footer-main {
+    padding: 50px 25px;
+  }
+  
+  .footer-container {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+    gap: 25px;
+  }
+  
+  .footer-brand .airtel-logo {
+    font-size: 28px;
+  }
+  
+  .footer-description {
+    font-size: 13px;
+  }
+  
+  .footer-links-section h4 {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .footer-links a {
+    font-size: 13px;
+  }
+  
+  .footer-links li {
+    margin-bottom: 10px;
+  }
+}
+
+/* Tablet and Below (below 1024px) - Hide sidebar */
+@media (max-width: 1023px) {
+  .navbar-menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: var(--primary-dark);
+    flex-direction: column;
+    padding: 20px;
+    gap: 5px;
+  }
+  
+  .navbar-menu.active {
+    display: flex;
+  }
+  
+  .navbar-toggle {
+    display: block;
+  }
+  
+  .navbar-actions {
+    display: none;
+  }
+  
+  .sidebar {
+    display: none;
+  }
+  
+  .main-content {
+    margin-left: 0;
+  }
+  
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 30px;
+  }
+  
+  .hero-content h1 {
+    font-size: 32px;
+  }
+  
+  .hero-content p {
+    margin: 0 auto 30px;
+  }
+  
+  .recharge-form {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .input-group {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .btn-browse-plans {
+    width: 100%;
+  }
+  
+  .hero-features {
+    justify-content: center;
+  }
+  
+  .hero-image {
+    display: none;
+  }
+  
+  .plans-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .footer-brand {
+    grid-column: span 2;
+  }
+}
+
+/* Mobile Tablets (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .plans-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Mobile Devices (below 768px) */
+@media (max-width: 767px) {
+  .plans-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .recharge-summary {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .newsletter-form {
+    flex-direction: column;
+  }
+  
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .footer-brand {
+    grid-column: span 1;
+  }
+  
+  .footer-social {
+    justify-content: center;
+  }
+  
+  .footer-bottom .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-certifications {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Small Mobile (below 480px) */
+@media (max-width: 479px) {
+  .navbar-container {
+    padding: 0 15px;
+  }
+  
+  .hero-section {
+    padding: 30px 20px;
+  }
+  
+  .hero-content h1 {
+    font-size: 26px;
+  }
+  
+  .section-header h2 {
+    font-size: 24px;
+  }
+  
+  .plans-filters {
+    gap: 8px;
+  }
+  
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+}
